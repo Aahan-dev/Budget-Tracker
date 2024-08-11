@@ -50,4 +50,53 @@ class BudgetTracker:
             print("Great! You are under budget.")
 
 
-    d
+    def run(self):
+        """Run the budget tracker."""
+        print("Welcome to the Budget Tracker!")
+
+
+
+
+        while True:
+            print("\nMenu:")
+            print("1. Add Income")
+            print("2. Add Expense")
+            print("3. View Budget Summary")
+            print("4. Exit")
+
+
+
+
+            choice = input("Enter your choice (1-4): ")
+
+
+
+
+            if choice == "1":
+                try:
+                    amount = float(input("Enter income amount: "))
+                    self.add_income(amount)
+                except ValueError:
+                    print("Invalid input. Please enter a number.")
+            elif choice == "2":
+                description = input("Enter expense description: ")
+                try:
+                    amount = float(input("Enter expense amount: "))
+                    self.add_expense(description, amount)
+                except ValueError:
+                    print("Invalid input. Please enter a number.")
+            elif choice == "3":
+                self.budget_summary()
+            elif choice == "4":
+                print("Exiting the Budget Tracker. Goodbye!")
+                break
+            else:
+                print("Invalid choice. Please select a valid option.")
+
+
+
+
+if __name__ == "__main__":
+    # Create an instance of BudgetTracker and run it
+    budget_tracker = BudgetTracker()
+    budget_tracker.run()
